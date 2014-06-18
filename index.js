@@ -97,7 +97,7 @@ function post (url, options) {
       if (err) {
         fn(err);
       } else if (res.statusCode < 200 || res.statusCode >= 300) {
-        debug('POST error', url, optoins, err, res.statusCode, body);
+        debug('POST error', url, options, err, res.statusCode, body);
         fn(new Error(body));
       } else {
         fn();

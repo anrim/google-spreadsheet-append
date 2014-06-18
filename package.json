@@ -1,6 +1,6 @@
 {
   "name": "google-spreadsheet-append",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Append rows to a Google Spreadsheet",
   "main": "index.js",
   "scripts": {
