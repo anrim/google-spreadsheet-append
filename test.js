@@ -6,7 +6,8 @@ var Spreadsheet = require('./index');
 describe('Google Spreadsheets append', function () {
   var auth = {
     email: process.env.EMAIL,
-    keyFile: process.env.KEYFILE
+    keyFile: process.env.KEYFILE,
+    key: process.env.KEY
   };
     
   var spreadsheet = Spreadsheet({

@@ -15,25 +15,22 @@ function Spreadsheet (options) {
     return new Spreadsheet(options);
   }
   
-  if (!options.auth || !options.auth.email || !options.auth.keyFile) throw new Error("auth.email & auth.keyFile are required");
-  this.auth = options.auth;
-  if (!Array.isArray(this.auth.scopes)) {
-    this.auth.scopes = [
-      'https://spreadsheets.google.com/feeds/',
-      'https://docs.google.com/feeds/'
-    ];
-  }
+  if (!options.auth || !options.auth.email) throw new Error("auth.email is required");
+  if (!(options.auth.keyFile || options.auth.key)) throw new Error("auth.keyFile or auth.key are required");
   
+  this.auth = options.auth;
+    
   if (!options.fileId) throw new Error("fileId is required");
   this.fileId = options.fileId;
+  
   this.sheetId = options.sheetId || "od6";
 }
 
 Spreadsheet.prototype.login = function *(options) {
   options = options || {};
   
-  if (!options.email) throw new Error('email is required');
-  if (!options.keyFile) throw new Error('keyFile (PEM encoded private key) is required');
+  if (!options.email) throw new Error('auth.email is required');
+  if (!(options.keyFile || options.key)) throw new Error("private key (auth.key or auth.keyFile) required");
   if (!Array.isArray(options.scopes)) {
     options.scopes = [
       'https://spreadsheets.google.com/feeds/',
