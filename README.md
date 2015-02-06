@@ -13,8 +13,8 @@ See more instruction here in this great blog post: [Accessing Google Spreadsheet
 
 ## Installation
 
-  	npm install google-spreadsheets-append
-  
+  	npm install google-spreadsheet-append
+
 
 ## Create a Service Account and share spreadsheet
 
@@ -37,10 +37,10 @@ See more instruction here in this great blog post: [Accessing Google Spreadsheet
     	},
     	fileId: {fileId}
   	});
-  
+
   	// append new row
   	yield spreadsheet.add({timestamp: moment().format("M/D/YYYY HH:mm:ss"), email: "a@a.com"});
-  
+
 
 ## MIT License
 
