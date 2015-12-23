@@ -17,7 +17,9 @@ function Spreadsheet (options) {
 
   if (!options.auth || !options.auth.email) throw new Error("auth.email is required");
   if (!(options.auth.keyFile || options.auth.key)) throw new Error("auth.keyFile or auth.key are required");
-
+  if (options.auth.key) {
+    options.auth.key = process.env.KEY.replace(/\\n/g,'\n');
+  }
   this.auth = options.auth;
 
   if (!options.fileId) throw new Error("fileId is required");

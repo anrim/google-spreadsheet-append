@@ -26,7 +26,6 @@ See more instruction here in this great blog post: [Accessing Google Spreadsheet
 6. Share a spreadsheet with service account email address
 7. Copy the file ID from the spreadsheet URL: "https://docs.google.com/a/gmail.com/spreadsheets/d/{fileId}/edit"
 
-
 ## Example usage
   	var moment = require('moment');
   	var Spreadsheet = require('google-spreadsheets-append');
@@ -58,6 +57,18 @@ npm test
 If you want to enable debug output, then run the tests like this:
 ```
 DEBUG=spreadsheet,google-oauth-jwt npm test
+```
+
+If you want to pass the private key in single-line string in the `KEY` variable, then first add newlines like this and copy the output.
+```
+awk 1 ORS='\\n' privatekey.pem
+```
+
+```
+export EMAIL=<service account email>
+export KEY=<key string with newlines>
+export FILEID=<spreadsheet file id>
+npm test
 ```
 
 ## MIT License
