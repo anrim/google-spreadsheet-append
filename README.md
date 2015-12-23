@@ -41,6 +41,24 @@ See more instruction here in this great blog post: [Accessing Google Spreadsheet
   	// append new row
   	yield spreadsheet.add({timestamp: moment().format("M/D/YYYY HH:mm:ss"), email: "a@a.com"});
 
+## Run tests
+
+Set environment variables (see steps above):
+```
+export EMAIL=<service account email>
+export KEYFILE=<key file>
+export FILEID=<spreadsheet file id>
+```
+
+then run the tests:
+```
+npm test
+```
+
+If you want to enable debug output, then run the tests like this:
+```
+DEBUG=spreadsheet,google-oauth-jwt npm test
+```
 
 ## MIT License
 
